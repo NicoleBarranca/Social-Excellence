@@ -6,11 +6,11 @@ const PORT = process.env.PORT || 3001;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-// when/if front-end is created in the public folder
+// when/if front-end is created in a public folder
 app.use(express.static("public"));
 
 mongoose.connect(
-  process.env.MONGODB_URI || "mongodb://localhost/Social-Excellence",
+  process.env.MONGODB_URI || "mongodb://localhost/Super-Social",
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
