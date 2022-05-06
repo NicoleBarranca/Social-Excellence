@@ -1,4 +1,4 @@
-const { Schema } = require("mongoose");
+const { Schema, model } = require("mongoose");
 //must create a reuire variable for formatting dates
 
 // SCHEMA ONLY
