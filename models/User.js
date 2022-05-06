@@ -1,5 +1,6 @@
 const { Schema, model } = require("mongoose");
-//must create a reuire variable for formatting dates
+//Variable for formatting dates
+const dateFormat = require("../utils/dateFormat");
 
 const UserSchema = new Schema({
   username: {
@@ -12,7 +13,7 @@ const UserSchema = new Schema({
     type: String,
     require: true,
     unique: true,
-    match: [/.+\@.+\..+/, "Please fill a valid email address"],
+    match: [/.+\@.+\..+/, "Please use a valid email address"],
   },
 
   thoughts: [
@@ -34,8 +35,7 @@ const UserSchema = new Schema({
   id: false,
 });
 
-// Create a virtual called "friendCount"
-//that retrieves the length of the user's "friends" array field on query.
+// Virtual
 UserSchema.virtual("friendCount").get(function () {
   return this.friends.length;
 });
