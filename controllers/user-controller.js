@@ -32,6 +32,23 @@ const userController = {
         res.sendStatus(400);
       });
   },
+  // UPDATE USER
+  updateUser({ params, body }, res) {
+    User.findOneAndUpdate({ _id: params.id }, body, {
+      new: true,
+      runValidators: true,
+    })
+      .then((userData) => {
+        if (!userData) {
+          res.status(404).json({
+            message: "This user does not exist. Please try a different ID.",
+          });
+          return;
+        }
+        res.json(userData);
+      })
+      .catch((err) => res.json(err));
+  },
 };
 
 module.exports = userController;
