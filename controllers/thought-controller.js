@@ -42,11 +42,11 @@ const thoughtController = {
   getThoughtById({ params }, res) {
     Thought.findOne({ _id: params.id })
       .populate({
-        path: "thoughts",
+        path: "users",
         select: "-__v",
       })
       .select("-__v")
-      .then((thoughtData) => res.json(thoughtData))
+      .then((userData) => res.json(userData))
       .catch((err) => {
         console.log(err);
         res.sendStatus(404);
