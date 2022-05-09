@@ -78,22 +78,46 @@ const userController = {
       .catch((err) => res.json(err));
   },
 
-  //DELETE FRIEND
-  // deleteFriend(req, res) {
-  //   User.findByIdAndDelete(
-  //     { _id: req.params.id },
-  //     { $pull: { friends: req.params.friendId } },
-  //     { new: true }
-  //   )
-  //     .then((userData) => res.json(userData))
+  // DELETE Friend
+  // deleteFriend({ params }, res) {
+  //   User.findOneAndDelete({ _id: params.friendId })
+  //     .then((deletedFriend) => {
+  //       if (!deletedFriend) {
+  //         return res
+  //           .status(404)
+  //           .json({ message: "No friend found with this ID!" });
+  //       }
+  //       return User.findOneAndUpdate(
+  //         { _id: params.userId },
+  //         { $pull: { friends: params.friendId } },
+  //         { new: true }
+  //       );
+  //     })
+  //     .then((deletedFriend) => {
+  //       if (!deletedFriend) {
+  //         res.status(404).json({ message: "No friend found with this ID!" });
+  //         return;
+  //       }
+  //       res.json(deletedFriend);
+  //     })
   //     .catch((err) => res.json(err));
   // },
-
-  deleteFriend({ params }, res) {
-    User.findOneAndDelete({ _id: params.id })
-      .then((user) => res.json(friendData))
+  //DELETE FRIEND
+  deleteFriend(req, res) {
+    User.findByIdAndDelete(
+      { _id: req.params.id },
+      { $pull: { friends: req.params.friendId } },
+      { new: true }
+    )
+      .then((userData) => res.json(userData))
       .catch((err) => res.json(err));
   },
+
+  //   deleteFriend({ params }, res) {
+  //     User.findOneAndDelete({ _id: params.id })
+  //       .then((user) => res.json(friendData))
+  //       .catch((err) => res.json(err));
+  //   },
 };
 
 module.exports = userController;

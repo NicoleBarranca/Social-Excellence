@@ -1,5 +1,5 @@
 const { Schema, model } = require("mongoose");
-//must create a reuire variable for formatting dates
+const dateFormat = require("../utils/dateFormat");
 
 // SCHEMA ONLY
 
