@@ -30,8 +30,6 @@ Super Social is a social network web application. With Super Social, users can c
 
 Here is a [video of Super Social'sfunctionality.](https://watch.screencastify.com/v/Z2WY1lPMyYlIbIRvpX3M).
 
-<img width=300px height=220px src="./images/Ins.png" alt="CRUD requests in Insomnia"></a>
-
 ## Contribution
 
 Made with ❤️ by Nicole Barranca
